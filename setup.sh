@@ -40,6 +40,13 @@ echo "Removing XFCE panel to avoid double dock..."
 xfconf-query -c xfce4-panel -p /panels -n -t int -s 0 || true
 pkill xfce4-panel || true
 
+# Install Plank themes
+echo "Installing Plank themes..."
+git clone https://github.com/erikdubois/Plank-Themes /tmp/plank-themes
+mkdir -p ~/.local/share/plank/themes
+cp -r /tmp/plank-themes/* ~/.local/share/plank/themes/
+chown -R "$USER:$USER" ~/.local/share/plank/themes
+rm -rf /tmp/plank-themes
 
 # Media tools
 apt install -y \
