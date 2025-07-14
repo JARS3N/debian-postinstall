@@ -48,6 +48,10 @@ cp -r /tmp/plank-themes/* ~/.local/share/plank/themes/
 chown -R "$USER:$USER" ~/.local/share/plank/themes
 rm -rf /tmp/plank-themes
 
+xfconf-query -c xfce4-panel -p /plugins/plugin-$(xfconf-query -c xfce4-panel -l | grep window-buttons | grep -oP '\d+') -r
+xfce4-panel -r
+
+
 # Media tools
 apt install -y \
     vlc mpv ffmpeg gimp inkscape \
