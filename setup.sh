@@ -36,6 +36,10 @@ Exec=plank
 X-GNOME-Autostart-enabled=true
 EOF
 
+echo "Removing XFCE panel to avoid double dock..."
+xfconf-query -c xfce4-panel -p /panels -n -t int -s 0 || true
+pkill xfce4-panel || true
+
 
 # Media tools
 apt install -y \
