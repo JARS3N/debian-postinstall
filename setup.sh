@@ -25,6 +25,18 @@ apt install -y \
     xfce4-whiskermenu-plugin \
     fonts-firacode fonts-roboto fonts-noto-color-emoji
 
+    
+echo "Setting Plank to autostart..."
+mkdir -p ~/.config/autostart
+cat <<EOF > ~/.config/autostart/plank.desktop
+[Desktop Entry]
+Type=Application
+Name=Plank Dock
+Exec=plank
+X-GNOME-Autostart-enabled=true
+EOF
+
+
 # Media tools
 apt install -y \
     vlc mpv ffmpeg gimp inkscape \
